@@ -1,0 +1,71 @@
+views:
+  - title: Dimplex
+    path: dimplex
+    icon: mdi:heat-pump
+    cards:
+      - type: history-graph
+        title: Dimplex – temperatures (24h)
+        hours_to_show: 24
+        refresh_interval: 60
+        entities:
+          - entity: sensor.dimplex_outdoor_temperature
+            name: Outdoor
+          - entity: sensor.dimplex_return_setpoint_temperature
+            name: Return setpoint
+          - entity: sensor.dimplex_return_temperature
+            name: Return
+          - entity: sensor.dimplex_flow_temperature
+            name: Flow
+          - entity: sensor.dimplex_dhw_temperature
+            name: DHW
+      - type: entities
+        title: Dimplex – status
+        show_header_toggle: false
+        entities:
+          - entity: sensor.dimplex_status_text
+            name: Operating status
+          - entity: sensor.dimplex_lock_text
+            name: Lock status
+          - entity: sensor.dimplex_fault_text
+            name: Fault status
+          - entity: binary_sensor.dimplex_any_lock_active
+            name: Any lock active
+          - entity: binary_sensor.dimplex_any_fault_active
+            name: Any fault active
+          - entity: sensor.dimplex_sg_ready_state_inputs
+            name: SG Ready state (inputs 3/4)
+          - entity: sensor.dimplex_sg_ready_mode_text
+            name: SG Ready mode
+          - entity: input_select.sg_ready_mode
+            name: SG Ready mode (set)
+          - entity: binary_sensor.dimplex_smartgrid_input_1
+            name: SG Line 1
+          - entity: binary_sensor.dimplex_smartgrid_input_2
+            name: SG Line 2
+      - type: history-graph
+        title: Dimplex – status codes (numeric)
+        hours_to_show: 24
+        refresh_interval: 60
+        entities:
+          - entity: sensor.dimplex_status_messages
+            name: Status code
+          - entity: sensor.dimplex_lock_messages
+            name: Lock code
+          - entity: sensor.dimplex_fault_messages
+            name: Fault code
+        logarithmic_scale: true
+      - type: history-graph
+        title: Dimplex – inverter frequency
+        hours_to_show: 24
+        refresh_interval: 60
+        entities:
+          - entity: sensor.dimplex_inverter_frequency
+      - type: history-graph
+        title: Dimplex – SG Ready states
+        hours_to_show: 24
+        refresh_interval: 60
+        entities:
+          - entity: sensor.dimplex_sg_ready_mode_text
+            name: SG Ready (register 5167)
+          - entity: sensor.dimplex_sg_ready_state_inputs
+            name: SG Ready (inputs 3/4)
