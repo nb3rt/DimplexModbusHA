@@ -1,2 +1,14 @@
 # DimplexModbusHA
 Dimplex modbus Home Assistant configuration
+
+Hi all, here's my novice attempt to integrate Dimplex heat pump via Modbus TCP.
+
+I've seen some similar configs around, and have previously done similar in Openhab (which I migrated from to HA). Remembering how much time it took me last time to build it, I took slightly different approach and went for vibe config with ChatGPT.
+
+I took dimplex wiki for modbus TCP (https://dimplex.atlassian.net/wiki/spaces/DW/pages/2873393288/NWPM+Modbus+TCP) and some surrounding pages, and asked gpt for providing complete modbus config for all sensors and registers. And so it did, taking all the hassle for mapping and translating from German (you might see some comments in Polish there, don't be surprised ;))
+
+Here it is - as a bonus from me, you get undocumented register 114 which is reflecting the inverter frequency in Hz (indirectly representing the load on the pump, as I do not have the heat meter built in the pump). 
+
+The sensors, coils and registers are nicely grouped, some templates I asked for mapping numeric states into labels, and some work around smart grid features (alas the smart grid setting for mode red / yellow / green / deep green in my case does not work, I have it wired in hardware to tado controller). In my setup, with LAK9 being pretty old Dimplex heat pump, not everything gives proper reports, in newer models more data might be available. There are some leftovers left, mostly around registers available for setting, I might drop them in later.
+
+There's a dashboard also with sample use (status board, temperature an inverter graphs)
