@@ -1,5 +1,5 @@
-# DimplexModbusHA
-Dimplex modbus Home Assistant configuration
+# Dimplex Modbus Home Assistant config
+Dimplex heatpump modbus Home Assistant configuration
 
 Hi all, here's my novice attempt to integrate Dimplex heat pump via Modbus TCP.
 
